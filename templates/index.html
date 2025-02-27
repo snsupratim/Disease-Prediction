@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Disease Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            margin: auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        img {
+            margin-top: 20px;
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Crop Disease Detection</h1>
+        <form action="/" method="post" enctype="multipart/form-data">
+            <label for="crop">Select Crop:</label>
+            <select name="crop" required>
+                {% for crop in crops %}
+                <option value="{{ crop }}">{{ crop }}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <input type="file" name="file" accept=".png, .jpg, .jpeg" required>
+            <br><br>
+            <button type="submit">Upload & Predict</button>
+        </form>
+
+        {% if message %}
+        <p><b>{{ message }}</b></p>
+        {% endif %}
+
+        {% if image_path %}
+        <img src="{{ image_path }}" alt="Uploaded Image">
+        {% endif %}
+
+        {% if disease_info %}
+        <h3>Remedies:</h3>
+        <p>{{ disease_info }}</p>
+        {% endif %}
+    </div>
+
+</body>
+
+</html>
