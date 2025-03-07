@@ -55,6 +55,14 @@ CROP_MODELS = {
     "Apple": {
         "model_path": "models/plant_disease_Apple_resnet50.pth",
         "class_labels": ['Apple__healthy','Apple_Cedar_apple_rust','Apple_Black_rot','Apple__Apple_scab']
+    },
+     "Peach": {
+        "model_path": "models/plant_disease_Peach_resnet50.pth",
+        "class_labels": ['Peach__healthy','Peach__Bacterial_spot']
+    },
+      "Strwaberry": {
+        "model_path": "models/plant_disease_Strawberry_resnet50.pth",
+        "class_labels": ['Strawberry__Leaf_scorch','Strawberry__healthy']
     }
 }
 
